@@ -278,7 +278,17 @@ public class MiniMainActivity extends AppCompatActivity
         mBtnVPN.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                enableVPN(isChecked);
+
+                new AlertDialog.Builder(MiniMainActivity.this)
+                        .setIcon(R.drawable.onion32)
+                        .setTitle("Permission denied")
+                        .setMessage("Ah ah ah, you didn't say the magic word")
+                        .setPositiveButton(R.string.btn_okay, null)
+                        .show();
+
+                mBtnVPN.setChecked( true );
+                // enableVPN(isChecked);
+
             }
         });
 
