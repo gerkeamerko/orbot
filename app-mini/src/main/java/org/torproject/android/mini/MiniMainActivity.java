@@ -268,15 +268,12 @@ public class MiniMainActivity extends AppCompatActivity
         uploadText.setText(formatTotal(0) + " \u2191");
 
 
-		mBtnVPN = (SwitchCompat)findViewById(R.id.btnVPN);
+		mBtnVPN = (SwitchCompat) findViewById(R.id.btnVPN);
 		
-        boolean useVPN = Prefs.useVpn();
-        mBtnVPN.setChecked(useVPN);
+        // Start the VPN mode by default
+        mBtnVPN.setChecked( true );
 
-        //auto start VPN if VPN is enabled
-        if (useVPN) {
-            startActivity(new Intent(MiniMainActivity.this,VPNEnableActivity.class));
-        }
+        startActivity(new Intent(MiniMainActivity.this,VPNEnableActivity.class));
 
         mBtnVPN.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
