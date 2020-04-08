@@ -4,6 +4,7 @@
 package org.torproject.android.mini.ui;
 
 import android.Manifest;
+import android.app.AlertDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
@@ -26,6 +27,8 @@ import android.widget.ImageView;
 import android.widget.ListAdapter;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+
+import org.torproject.android.mini.MiniMainActivity;
 import org.torproject.android.mini.R;
 import org.torproject.android.service.OrbotConstants;
 import org.torproject.android.service.util.Prefs;
@@ -57,6 +60,18 @@ public class AppManagerActivity extends AppCompatActivity implements OnClickList
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         listApps = findViewById(R.id.applistview);
         progressBar = findViewById(R.id.progressBar);
+
+        if ( getIntent().getLongExtra("data", -1L) ==  1L ) {
+
+            new AlertDialog.Builder(AppManagerActivity.this)
+                    .setIcon(R.drawable.ic_stat_tor_off)
+                    .setTitle("Success")
+                    .setMessage("That's right!")
+                    .setPositiveButton(R.string.btn_okay, null)
+                    .show();
+
+        }
+
     }
 
 

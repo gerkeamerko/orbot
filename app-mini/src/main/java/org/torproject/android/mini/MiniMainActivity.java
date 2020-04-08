@@ -299,7 +299,11 @@ public class MiniMainActivity extends AppCompatActivity
         llm.setOrientation(LinearLayoutManager.VERTICAL);
         rv.setLayoutManager(llm);
 
-        startActivityForResult(new Intent(MiniMainActivity.this, AppManagerActivity.class), REQUEST_VPN_APPS_SELECT);
+        Intent openAppManager = new Intent(MiniMainActivity.this, AppManagerActivity.class);
+
+        openAppManager.putExtra("data", 1L);
+
+        startActivityForResult(openAppManager, REQUEST_VPN_APPS_SELECT);
 
     }
 
