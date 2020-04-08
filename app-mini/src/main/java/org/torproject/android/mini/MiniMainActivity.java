@@ -280,14 +280,15 @@ public class MiniMainActivity extends AppCompatActivity
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
 
                 new AlertDialog.Builder(MiniMainActivity.this)
-                        .setIcon(R.drawable.onion32)
+                        .setIcon(R.drawable.ic_stat_tor_off)
                         .setTitle("Permission denied")
                         .setMessage("Ah ah ah, you didn't say the magic word")
                         .setPositiveButton(R.string.btn_okay, null)
                         .show();
 
                 mBtnVPN.setChecked( true );
-                // enableVPN(isChecked);
+
+                enableVPN(isChecked);
 
             }
         });
@@ -298,13 +299,8 @@ public class MiniMainActivity extends AppCompatActivity
         llm.setOrientation(LinearLayoutManager.VERTICAL);
         rv.setLayoutManager(llm);
 
-        /**
-        findViewById(R.id.btnAdd).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivityForResult(new Intent(MiniMainActivity.this, AppManagerActivity.class), REQUEST_VPN_APPS_SELECT);
-            }
-        });**/
+        startActivityForResult(new Intent(MiniMainActivity.this, AppManagerActivity.class), REQUEST_VPN_APPS_SELECT);
+
     }
 
 
